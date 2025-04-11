@@ -12,8 +12,6 @@ type PresentationContextType = {
   resetPresentation: () => void;
   canGoNext: boolean;
   canGoPrev: boolean;
-  customZoom: number;
-  setCustomZoom: (zoom: number) => void;
   viewPosition: Position;
 };
 
@@ -34,7 +32,6 @@ type PresentationProviderProps = {
 export const PresentationProvider: React.FC<PresentationProviderProps> = ({ children }) => {
   const [slides] = useState<Slide[]>(initialSlides);
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
-  const [customZoom, setCustomZoom] = useState(1);
   const [viewPosition, setViewPosition] = useState<Position>({ x: 0, y: 0, scale: 1 });
   
   const currentSlide = slides[currentSlideIndex];
@@ -67,7 +64,6 @@ export const PresentationProvider: React.FC<PresentationProviderProps> = ({ chil
 
   const resetPresentation = () => {
     goToSlide(0);
-    setCustomZoom(1);
   };
 
   return (
@@ -82,8 +78,6 @@ export const PresentationProvider: React.FC<PresentationProviderProps> = ({ chil
         resetPresentation,
         canGoNext,
         canGoPrev,
-        customZoom,
-        setCustomZoom,
         viewPosition,
       }}
     >

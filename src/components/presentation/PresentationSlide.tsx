@@ -8,22 +8,20 @@ type PresentationSlideProps = {
   isActive: boolean;
 };
 
+/**
+ * Simplified PresentationSlide component
+ */
 const PresentationSlide: React.FC<PresentationSlideProps> = ({ 
   slide, 
   isActive 
 }) => {
   return (
     <div 
-      className="reveal-slide w-full h-full" 
+      className="reveal-slide" 
       data-slide-id={slide.id}
       style={{ 
         position: 'absolute',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%',
-        zIndex: isActive ? 10 : 1,
-        opacity: isActive ? 1 : 0.5,
+        opacity: isActive ? 1 : 0,
         pointerEvents: isActive ? 'auto' : 'none'
       }}
     >

@@ -9,8 +9,7 @@ type PresentationElementProps = {
 };
 
 /**
- * PresentationElement renders different types of content (header, text, image, shape)
- * based on the element type provided in props.
+ * Simplified PresentationElement component that renders slide content
  */
 const PresentationElement: React.FC<PresentationElementProps> = ({ 
   element, 
@@ -18,47 +17,25 @@ const PresentationElement: React.FC<PresentationElementProps> = ({
 }) => {
   const { type, content, position, style = {} } = element;
   
-  // Apply positioning and transformation styles
+  // Basic positioning styles
   const elementStyle: React.CSSProperties = {
     position: 'absolute',
     left: `${position.x}%`,
     top: `${position.y}%`,
-    transform: `scale(${position.scale}) ${position.rotation ? `rotate(${position.rotation}deg)` : ''}`,
-    zIndex: position.zIndex || 1,
+    transform: `scale(${position.scale})`,
     ...style as React.CSSProperties
   };
 
-  /**
-   * Render appropriate content based on element type
-   */
+  // Simple content renderer based on element type
   const renderContent = () => {
     switch (type) {
       case 'header':
-        // Render a heading element
-        return <h2 className="m-0 p-0 text-center" style={style as React.CSSProperties}>{content}</h2>;
-      
+        return <h2 className="text-center">{content}</h2>;
       case 'text':
-        // Render a paragraph element
-        return <p className="m-0 p-0 text-center" style={style as React.CSSProperties}>{content}</p>;
-      
+        return <p className="text-center">{content}</p>;
       case 'image':
-        // Render an image element
-        return (
-          <img 
-            src={content} 
-            alt="Presentation image" 
-            className="max-w-full transition-all duration-300 hover:shadow-lg"
-            style={style as React.CSSProperties} 
-            loading="lazy"
-          />
-        );
-      
-      case 'shape':
-        // Render a shape (div with specific styling)
-        return <div className="transition-all duration-300" style={style as React.CSSProperties}></div>;
-      
+        return <img src={content} alt="Slide image" loading="lazy" />;
       default:
-        // Fallback for unknown element types
         return <div>{content}</div>;
     }
   };
