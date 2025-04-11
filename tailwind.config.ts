@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,6 +62,15 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				presentation: {
+					'blue': '#4285F4',
+					'purple': '#7B68EE',
+					'teal': '#20B2AA',
+					'pink': '#FF69B4',
+					'orange': '#FFA500',
+					'dark': '#1A202C',
+					'light': '#F8F9FA'
 				}
 			},
 			borderRadius: {
@@ -84,11 +94,21 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'zoom-in': {
+					'0%': { transform: 'scale(1)' },
+					'100%': { transform: 'scale(1.5)' }
+				},
+				'zoom-out': {
+					'0%': { transform: 'scale(1.5)' },
+					'100%': { transform: 'scale(1)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'zoom-in': 'zoom-in 0.5s ease-out forwards',
+				'zoom-out': 'zoom-out 0.5s ease-out forwards'
 			}
 		}
 	},
