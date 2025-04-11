@@ -22,6 +22,15 @@ export type Slide = {
   viewPosition: Position;
 };
 
+// Sample images from Unsplash (these are placeholders that can be used in slides)
+export const sampleImages = [
+  'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=800&q=80',
+  'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80',
+  'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80',
+  'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80',
+  'https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=800&q=80'
+];
+
 export const initialSlides: Slide[] = [
   {
     id: 'slide-1',
@@ -32,15 +41,22 @@ export const initialSlides: Slide[] = [
         id: 'title-1',
         type: 'header',
         content: 'Interactive Zoom Presentation',
-        position: { x: 50, y: 40, scale: 1, zIndex: 20 },
+        position: { x: 50, y: 30, scale: 1, zIndex: 20 },
         style: { color: '#4285F4', fontSize: '3rem', fontWeight: 'bold' }
       },
       {
         id: 'subtitle-1',
         type: 'text',
         content: 'Using Reveal.js with custom zoom functionality',
-        position: { x: 50, y: 55, scale: 1, zIndex: 15 },
+        position: { x: 50, y: 45, scale: 1, zIndex: 15 },
         style: { color: '#7B68EE', fontSize: '1.5rem' }
+      },
+      {
+        id: 'image-1',
+        type: 'image',
+        content: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=800&q=80',
+        position: { x: 50, y: 70, scale: 1, zIndex: 10 },
+        style: { width: '400px', height: 'auto', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.2)' }
       }
     ]
   },
@@ -69,6 +85,13 @@ export const initialSlides: Slide[] = [
         content: 'circle',
         position: { x: 75, y: 65, scale: 1, zIndex: 15 },
         style: { backgroundColor: '#FF69B4', width: '100px', height: '100px', borderRadius: '50%' }
+      },
+      {
+        id: 'image-2',
+        type: 'image',
+        content: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=800&q=80',
+        position: { x: 30, y: 70, scale: 1, zIndex: 10 },
+        style: { width: '300px', height: 'auto', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.2)' }
       }
     ]
   },
@@ -104,6 +127,13 @@ export const initialSlides: Slide[] = [
         content: 'triangle',
         position: { x: 80, y: 60, scale: 1, zIndex: 15 },
         style: { width: '0', height: '0', borderLeft: '50px solid transparent', borderRight: '50px solid transparent', borderBottom: '100px solid #7B68EE' }
+      },
+      {
+        id: 'image-3',
+        type: 'image',
+        content: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80',
+        position: { x: 20, y: 60, scale: 1, zIndex: 5 },
+        style: { width: '250px', height: 'auto', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.2)' }
       }
     ]
   },
@@ -125,6 +155,13 @@ export const initialSlides: Slide[] = [
         content: 'Zoom out to see the whole picture',
         position: { x: 50, y: 20, scale: 1, zIndex: 20 },
         style: { color: '#333', fontSize: '1.2rem' }
+      },
+      {
+        id: 'image-4',
+        type: 'image',
+        content: 'https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=800&q=80',
+        position: { x: 50, y: 50, scale: 1, zIndex: 5 },
+        style: { width: '500px', height: 'auto', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.2)' }
       }
     ]
   }
