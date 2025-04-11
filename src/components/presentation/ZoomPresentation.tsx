@@ -67,7 +67,7 @@ const PresentationContent: React.FC = () => {
         onZoomIn={() => {}}
         onZoomOut={() => {}}
         canPrev={canGoPrev}
-        canNext={canNext}
+        canNext={canGoNext}
       />
     </div>
   );
