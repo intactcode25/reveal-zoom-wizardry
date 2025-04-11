@@ -8,12 +8,17 @@ type PresentationElementProps = {
   className?: string;
 };
 
+/**
+ * PresentationElement renders different types of content (header, text, image, shape)
+ * based on the element type provided in props.
+ */
 const PresentationElement: React.FC<PresentationElementProps> = ({ 
   element, 
   className 
 }) => {
   const { type, content, position, style = {} } = element;
   
+  // Apply positioning and transformation styles
   const elementStyle: React.CSSProperties = {
     position: 'absolute',
     left: `${position.x}%`,
@@ -23,13 +28,21 @@ const PresentationElement: React.FC<PresentationElementProps> = ({
     ...style as React.CSSProperties
   };
 
+  /**
+   * Render appropriate content based on element type
+   */
   const renderContent = () => {
     switch (type) {
       case 'header':
+        // Render a heading element
         return <h2 className="m-0 p-0 text-center" style={style as React.CSSProperties}>{content}</h2>;
+      
       case 'text':
+        // Render a paragraph element
         return <p className="m-0 p-0 text-center" style={style as React.CSSProperties}>{content}</p>;
+      
       case 'image':
+        // Render an image element
         return (
           <img 
             src={content} 
@@ -39,9 +52,13 @@ const PresentationElement: React.FC<PresentationElementProps> = ({
             loading="lazy"
           />
         );
+      
       case 'shape':
+        // Render a shape (div with specific styling)
         return <div className="transition-all duration-300" style={style as React.CSSProperties}></div>;
+      
       default:
+        // Fallback for unknown element types
         return <div>{content}</div>;
     }
   };

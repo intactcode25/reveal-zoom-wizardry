@@ -1,9 +1,8 @@
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import PresentationSlide from './PresentationSlide';
 import NavigationControls from './NavigationControls';
 import PositionIndicator from './PositionIndicator';
-import ImageSelector from './ImageSelector';
 import { PresentationProvider, usePresentationContext } from './PresentationContext';
 
 const PresentationContent: React.FC = () => {
@@ -28,13 +27,6 @@ const PresentationContent: React.FC = () => {
 
   const handleZoomOut = () => {
     setCustomZoom(Math.max(customZoom - 0.2, 0.5));
-  };
-
-  // Handle image selection (in a real app, this would modify the slides)
-  const handleSelectImage = (imageUrl: string) => {
-    console.log("Selected image:", imageUrl);
-    // This would add the image to the current slide in a real implementation
-    alert(`Image selected: ${imageUrl}\n\nIn a full implementation, this would add the image to the current slide.`);
   };
 
   // Apply transform to the container based on current slide's viewPosition
@@ -112,7 +104,6 @@ const PresentationContent: React.FC = () => {
       />
       
       <PositionIndicator />
-      <ImageSelector onSelectImage={handleSelectImage} />
     </div>
   );
 };
