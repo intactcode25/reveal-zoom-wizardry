@@ -13,6 +13,7 @@ type PresentationContextType = {
   canGoNext: boolean;
   canGoPrev: boolean;
   viewPosition: Position;
+  customZoom: number;
 };
 
 const PresentationContext = createContext<PresentationContextType | undefined>(undefined);
@@ -33,6 +34,7 @@ export const PresentationProvider: React.FC<PresentationProviderProps> = ({ chil
   const [slides] = useState<Slide[]>(initialSlides);
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const [viewPosition, setViewPosition] = useState<Position>({ x: 0, y: 0, scale: 1 });
+  const [customZoom] = useState(1); // Add customZoom state with default value of 1
   
   const currentSlide = slides[currentSlideIndex];
   const canGoNext = currentSlideIndex < slides.length - 1;
@@ -79,6 +81,7 @@ export const PresentationProvider: React.FC<PresentationProviderProps> = ({ chil
         canGoNext,
         canGoPrev,
         viewPosition,
+        customZoom,
       }}
     >
       {children}
