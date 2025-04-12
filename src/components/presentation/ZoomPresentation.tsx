@@ -12,8 +12,8 @@ const PresentationContent: React.FC = () => {
     goToNextSlide,
     goToPrevSlide,
     resetPresentation,
-    canGoNext,
     canGoPrev,
+    canNext,
     viewPosition,
   } = usePresentationContext();
 
@@ -67,7 +67,7 @@ const PresentationContent: React.FC = () => {
         onZoomIn={() => {}}
         onZoomOut={() => {}}
         canPrev={canGoPrev}
-        canNext={canGoNext}
+        canNext={canNext}
       />
     </div>
   );
